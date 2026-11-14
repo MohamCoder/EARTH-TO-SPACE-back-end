@@ -1,0 +1,26 @@
+[project]
+name = "nasa-hackathon"
+version = "0.1.0"
+description = "Back-end code for team astronomy x problem 10"
+readme = "README.md"
+authors = [
+    { name = "mohammedali", email = "mohammedalimustafa@proton.me" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.162.7",
+    "python-dotenv>=1.2.4",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+nasa-hackathon = "nasa_hackathon:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+extraPaths = ["src"]

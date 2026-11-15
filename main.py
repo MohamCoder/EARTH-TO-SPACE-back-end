@@ -1,6 +1,18 @@
 from fastapi import FastAPI
-from src.api.get_request import router as get_router
+from fastapi.middleware.cors import CORSMiddleware
+from src.api import api_router
 
-app = FastAPI()
+app = FastAPI(
+    title="EARTH-TO-SPACE Terrestrial Analog API",
+    description="Lightweight point-query API scoring Earth locations against Moon & Mars target profiles.",
+    version="1.0.0",
+)
 
-app.include_router(get_router)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(api_router)
